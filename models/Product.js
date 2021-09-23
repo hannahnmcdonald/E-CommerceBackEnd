@@ -25,7 +25,6 @@ Product.init(
       validate: {
         isNumeric: true,
       }
-
     },
     stock: {
       type: DataTypes.INTEGER,
@@ -36,8 +35,12 @@ Product.init(
       }
     },
     category_id: {
-      type: datatypes.INTEGER,
-      // TO DO: reference Category model's ID
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'category',
+        key: 'id',
+        unique: false,
+      }
     }
   },
   {
